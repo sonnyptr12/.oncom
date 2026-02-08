@@ -33,7 +33,7 @@
   <section class="contact-container">
     <div class="contact-grid">
 
-      <!-- Form -->
+      <!-- Form Kontak Lama -->
       <div class="contact-form">
         <h2>Kirim Pesan</h2>
         <form>
@@ -73,6 +73,80 @@
 
     </div>
   </section>
+
+  <!-- KOMENTAR PUBLIK -->
+  <section class="comment-section">
+    <h2>Komentar Pengunjung</h2>
+
+    <form id="commentForm">
+      <input type="text" id="name" placeholder="Nama" required>
+      <input type="email" id="email" placeholder="Email" required>
+      <textarea id="message" placeholder="Tulis komentar..." required></textarea>
+      <button type="submit">Kirim Komentar</button>
+    </form>
+
+    <div id="commentsList"></div>
+  </section>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+  <script>
+    // GANTI DENGAN CONFIG FIREBASE ANDA
+    var firebaseConfig = {
+      apiKey: "ISI_API_KEY",
+      authDomain: "ISI_AUTH_DOMAIN",
+      databaseURL: "ISI_DATABASE_URL",
+      projectId: "ISI_PROJECT_ID",
+      storageBucket: "ISI_STORAGE_BUCKET",
+      messagingSenderId: "ISI_SENDER_ID",
+      appId: "ISI_APP_ID"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    var database = firebase.database();
+
+    var form = document.getElementById("commentForm");
+    var commentsList = document.getElementById("commentsList");
+
+    // Kirim komentar
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      var name = document.getElementById("name").value;
+      var email = document.getElementById("email").value;
+      var message = document.getElementById("message").value;
+
+      var commentData = {
+        name: name,
+        email: email,
+        message: message,
+        date: new Date().toLocaleString()
+      };
+
+      database.ref("comments").push(commentData);
+      form.reset();
+    });
+
+    // Tampilkan komentar
+    database.ref("comments").on("value", function(snapshot) {
+      commentsList.innerHTML = "";
+      snapshot.forEach(function(childSnapshot) {
+        var data = childSnapshot.val();
+
+        var commentDiv = document.createElement("div");
+        commentDiv.classList.add("comment");
+        commentDiv.innerHTML = `
+          <strong>${data.name}</strong><br>
+          <small>${data.date}</small>
+          <p>${data.message}</p>
+        `;
+
+        commentsList.appendChild(commentDiv);
+      });
+    });
+  </script>
 
 </body>
 </html>
