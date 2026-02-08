@@ -89,11 +89,10 @@
   </section>
 
   <!-- Firebase SDK -->
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
 
-  <script>
-    // GANTI DENGAN CONFIG FIREBASE ANDA
+<script>
   var firebaseConfig = {
     apiKey: "AIzaSyAj_qPDRN_DChi2mcgCVOO7CSqVbUv63Xw",
     authDomain: "website-comment12.firebaseapp.com",
@@ -104,51 +103,57 @@
     appId: "1:43878890339:web:03da7eaa93553983deb156"
   };
 
+  firebase.initializeApp(firebaseConfig);
+  var database = firebase.database();
 
-    firebase.initializeApp(firebaseConfig);
-    var database = firebase.database();
+  const form = document.getElementById("commentForm");
+  const commentsList = document.getElementById("commentsList");
 
-    var form = document.getElementById("commentForm");
-    var commentsList = document.getElementById("commentsList");
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
 
-    // Kirim komentar
-    form.addEventListener("submit", function(e) {
-      e.preventDefault();
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
 
-      var name = document.getElementById("name").value;
-      var email = document.getElementById("email").value;
-      var message = document.getElementById("message").value;
-
-      var commentData = {
-        name: name,
-        email: email,
-        message: message,
-        date: new Date().toLocaleString()
-      };
-
-      database.ref("comments").push(commentData);
-      form.reset();
+    database.ref("comments").push({
+      name: name,
+      email: email,
+      message: message,
+      date: new Date().toLocaleString()
     });
 
-    // Tampilkan komentar
-    database.ref("comments").on("value", function(snapshot) {
-      commentsList.innerHTML = "";
-      snapshot.forEach(function(childSnapshot) {
-        var data = childSnapshot.val();
+    form.reset();
+  });
 
-        var commentDiv = document.createElement("div");
-        commentDiv.classList.add("comment");
-        commentDiv.innerHTML = `
-          <strong>${data.name}</strong><br>
-          <small>${data.date}</small>
-          <p>${data.message}</p>
-        `;
+  database.ref("comments").on("value", function(snapshot) {
+    commentsList.innerHTML = "";
 
-        commentsList.appendChild(commentDiv);
-      });
+    snapshot.forEach(function(child) {
+      const data = child.val();
+
+      const div = document.createElement("div");
+      div.className = "fb-comment";
+      div.innerHTML = `
+        <div class="comment-avatar">
+          <img src="https://ui-avatars.com/api/?name=${data.name}&background=0D8ABC&color=fff">
+        </div>
+        <div class="comment-content">
+          <div class="comment-bubble">
+            <span class="comment-name">${data.name}</span>
+            <p>${data.message}</p>
+          </div>
+          <div class="comment-meta">${data.date}</div>
+        </div>
+      `;
+
+      commentsList.appendChild(div);
     });
-  </script>
+  });
+</script>
+
 
 </body>
 </html>
+
 
