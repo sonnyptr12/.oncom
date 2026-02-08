@@ -575,6 +575,74 @@ body {
   }
 }
 
+/* Facebook Style Comments */
+.comment-section {
+  max-width: 700px;
+  margin: 60px auto;
+  padding: 20px;
+}
+
+#commentForm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#commentForm input,
+#commentForm textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+#commentForm button {
+  background: #1877f2;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.fb-comment {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.comment-avatar img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.comment-content {
+  flex: 1;
+}
+
+.comment-bubble {
+  background: #f0f2f5;
+  padding: 10px 14px;
+  border-radius: 15px;
+}
+
+.comment-name {
+  font-weight: bold;
+  font-size: 14px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.comment-bubble p {
+  margin: 0;
+}
+
+.comment-meta {
+  font-size: 12px;
+  color: #65676b;
+  margin-top: 4px;
+}
+
 
 
 
