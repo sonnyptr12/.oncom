@@ -49,7 +49,7 @@ body {
 
 /* Main container */
 .container {
-  width: 100%;
+  width: 95%;
   max width: 1200px;
   margin: 30px auto;
   display: flex;
@@ -532,5 +532,6 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
 
 
