@@ -1,42 +1,41 @@
-// Hamburger menu toggle
-const toggle = document.querySelector('.menu-toggle');
-const navUl = document.querySelector('nav ul');
+document.addEventListener("DOMContentLoaded", function () {
 
-toggle.addEventListener('click', () => {
-    navUl.classList.toggle('show');
-});
+  /* ===============================
+     HAMBURGER MENU
+  ================================= */
+  const menuToggle = document.getElementById('mobile-menu');
+  const navList = document.querySelector('.nav-list');
 
-// Smooth scroll for menu links
-document.querySelectorAll('nav ul li a').forEach(link => {
-    link.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        target.scrollIntoView({ behavior: 'smooth' });
-        // Close menu on mobile after click
-        navUl.classList.remove('show');
+  if (menuToggle && navList) {
+    menuToggle.addEventListener('click', () => {
+      navList.classList.toggle('active');
     });
-});
+  }
 
-  // Pilih tombol dan paragraf
+  /* ===============================
+     SMOOTH SCROLL
+  ================================= */
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+        if (navList) navList.classList.remove('active');
+      }
+    });
+  });
+
+  /* ===============================
+     TOMBOL DEMO (opsional)
+  ================================= */
   const tombol = document.getElementById('klikSaya');
   const pesan = document.getElementById('pesan');
 
-  // Tambahkan event klik
-  tombol.addEventListener('click', function() {
+  if (tombol && pesan) {
+    tombol.addEventListener('click', function () {
       pesan.textContent = "Halo! Kamu baru saja menekan tombol!";
-  });
+    });
+  }
 
-  // Hamburger menu toggle
-const menuToggle = document.getElementById('mobile-menu');
-const navList = document.querySelector('.nav-list');
-
-menuToggle.addEventListener('click', () => {
-  navList.classList.toggle('active');
-});
-
-// Hamburger Menu
-const menuToggle = document.getElementById('mobile-menu');
-const navList = document.querySelector('.nav-list');
-menuToggle.addEventListener('click', () => {
-  navList.classList.toggle('active');
 });
