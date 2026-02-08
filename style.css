@@ -269,6 +269,49 @@ body {
   box-shadow: 0 10px 25px rgba(0,0,0,0.3);
 }
 
+.comment-section {
+  max-width: 700px;
+  margin: 60px auto;
+  padding: 20px;
+}
+
+.comment-section h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#commentForm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#commentForm input,
+#commentForm textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+#commentForm button {
+  background: #007BFF;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#commentsList {
+  margin-top: 30px;
+}
+
+.comment {
+  border-bottom: 1px solid #ddd;
+  padding: 12px 0;
+}
+
+
 /* Floating Social */
 .floating-social {
   position: fixed;
@@ -531,6 +574,7 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
 
 
 
