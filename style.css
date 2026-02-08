@@ -244,20 +244,6 @@ body {
   display: block;
 }
 
-@media (max-width: 768px) {
-  .container {
-    padding: 15px;
-  }
-
-  .menu {
-    flex-direction: column;
-  }
-
-  .hero {
-    text-align: center;
-  }
-}
-
 
 
 /* ===== CONTACT SECTION ===== */
@@ -546,4 +532,5 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
 
