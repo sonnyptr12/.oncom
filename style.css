@@ -630,6 +630,7 @@ body {
 .comment-name {
   font-weight: bold;
   font-size: 14px;
+  color: navy
   display: block;
   margin-bottom: 4px;
 }
