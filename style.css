@@ -19,7 +19,7 @@ body {
   background: rgba(255,255,255,0.85);
   backdrop-filter: blur(10px);
   border-radius: 20px;
-  display: flex;
+  display: flex; 
   justify-content: space-between;
   align-items: center;
 }
@@ -49,11 +49,10 @@ body {
 
 /* Main container */
 .container {
-  width: 100%;
-  max-width: 1200px
-  margin: 30px auto;
+  width: 95%;
+  margin: 20px auto;
   display: flex;
-  gap: 30px;
+  gap: 20px;
 }
 
 /* Photo Section */
@@ -148,7 +147,7 @@ body {
 
 /* ===== SKILLS SECTION ===== */
 .skills-section {
-  padding: 80px 5%;
+  padding: 50px 5%;
   text-align: center;
   color: white;
   background: linear-gradient(120deg, #0b1440, #020617);
@@ -156,12 +155,12 @@ body {
 
 .skills-section h2 {
   color: white;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
 
 /* GRID UTAMA */
 .skill-grid {
-  margin-top: 40px;
+  margin-top: 20px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 25px;
@@ -200,16 +199,16 @@ body {
 
 /* ===== PORTFOLIO SECTION ===== */
 .portfolio-section {
-  padding: 80px 5%;
+  padding: 100px 5%;
   text-align: center;
   color: white;
 }
 
 .portfolio-grid {
-  margin-top: 40px;
+  margin-top: 30px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
+  gap: 20px;
 }
 
 .portfolio-card {
@@ -222,7 +221,7 @@ body {
 
 .portfolio-card img {
   width: 100%;
-  height: 180px;
+  height: 160px;
   object-fit: cover;
 }
 
