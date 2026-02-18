@@ -645,6 +645,86 @@ body {
   margin-top: 4px;
 }
 
+/* ================= HERO NEW DESIGN ================= */
+
+.hero-section {
+  width: 95%;
+  margin: 20px auto;
+  display: flex;
+  border-radius: 25px;
+  overflow: hidden;
+  min-height: 450px;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+}
+
+/* LEFT IMAGE */
+.hero-left {
+  flex: 1;
+  background: url("foto-utama.jpg") center/cover no-repeat;
+  position: relative;
+}
+
+/* Gradient Overlay */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(255,255,255,0.3),
+    rgba(13,20,64,0.95)
+  );
+}
+
+/* RIGHT CONTENT */
+.hero-right {
+  flex: 1;
+  padding: 60px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-right h1 {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.hero-right h3 {
+  font-weight: 500;
+  margin-bottom: 20px;
+  color: #cbd5f5;
+}
+
+.hero-right p {
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 500px;
+  opacity: 0.9;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero-section {
+    flex-direction: column;
+  }
+
+  .hero-left {
+    height: 300px;
+  }
+
+  .hero-right {
+    padding: 30px;
+    text-align: center;
+    align-items: center;
+  }
+
+  .hero-right p {
+    max-width: 100%;
+  }
+}
+
 
 
 
