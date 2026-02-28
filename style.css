@@ -308,7 +308,7 @@ body {
 }
 
 .comment {
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #021838;
   padding: 12px 0;
 }
 
@@ -734,6 +734,7 @@ body {
     max-width: 100%;
   }
 }
+
 
 
 
